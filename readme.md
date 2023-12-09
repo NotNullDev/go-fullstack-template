@@ -10,8 +10,10 @@ Full stack template with go (using air), templ and tailwind hot-reloading
   - [main.go](#maingo)
   - [public](#public)
 - [How to run](#how-to-run)
-  - [First run](#first-run)
 - [Useful documentation](#useful-documentation)
+- [Fly.io](#flyio)
+  - [Install flyctl](#install-flyctl)
+  - [Init repo \[DONE\]](#init-repo-done)
 - [How it was initialized](#how-it-was-initialized)
 
 
@@ -41,16 +43,15 @@ Public catalog mapped to /
 
 Files from this catalog will be publicly available.
 
+
 # How to run
 
-## First run
-
 ```shell
-npm i
-go mod tidy
-bash ./run.sh
+./devops/install-tools.sh # only for the first run
+./devops/run.sh
 # start coding
 ```
+
 
 # Useful documentation
 
@@ -62,6 +63,18 @@ https://templ.guide/syntax-and-usage/script-templates
 
 IDE support
 https://templ.guide/commands-and-tools/ide-support
+
+
+# Fly.io
+
+## Install flyctl
+https://fly.io/docs/hands-on/install-flyctl/
+
+## Init repo [DONE]
+https://fly.io/docs/languages-and-frameworks/golang/
+```shell
+fly launch ! fly.toml was copied by example because flyctl detected current project as nodejs app
+```
 
 # How it was initialized
 
