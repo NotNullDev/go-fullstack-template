@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+    @apply no-animation active:scale-95;
+}
+
+.input {
+    @apply input-sm;
+}
+
+.textarea {
+    @apply textarea-sm;
+}

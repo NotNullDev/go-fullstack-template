@@ -18,5 +18,7 @@ air
 context: to avoid props drilling:
 https://templ.guide/syntax-and-usage/context
 
+using js in templates:
+https://templ.guide/syntax-and-usage/script-templates
 
 https://templ.guide/commands-and-tools/ide-support

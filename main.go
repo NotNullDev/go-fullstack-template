@@ -27,6 +27,11 @@ func main() {
 		return nil
 	})
 
+	e.GET("/js-playground", func(c echo.Context) error {
+		notes.CreateJSPlaygroundPage().Render(c.Request().Context(), c.Response().Writer)
+		return nil
+	})
+
 	e.POST("/create-note", func(c echo.Context) error {
 		title := c.FormValue("title")
 		content := c.FormValue("content")
