@@ -8,7 +8,7 @@ import (
 	"github.com/notnulldev/go-templ-playground/notes"
 )
 
-var notesDb []notes.Note
+var notesDb []notes.Note = []notes.Note{{Id: uuid.NewString(), Title: "Test note", Content: "Test\nMultiline\nContent"}}
 
 func main() {
 	println("hello world!")
