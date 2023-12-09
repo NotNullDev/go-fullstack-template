@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	println("hello world!")
 	e := echo.New()
 
 	e.Static("/", "public")
