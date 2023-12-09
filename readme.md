@@ -15,5 +15,8 @@ templ generate -watch
 npx tailwindcss -i ./views/app.css -o ./dist/output.css --watch
 air
 ```
+context: to avoid props drilling:
+https://templ.guide/syntax-and-usage/context
+
 
 https://templ.guide/commands-and-tools/ide-support
