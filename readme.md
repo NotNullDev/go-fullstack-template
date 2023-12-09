@@ -8,10 +8,11 @@ Full stack template with go (using air), templ and tailwind hot-reloading
   - [notes](#notes)
   - [js-playground](#js-playground)
   - [main.go](#maingo)
+  - [public](#public)
 - [How to run](#how-to-run)
   - [First run](#first-run)
-- [How it was initialized](#how-it-was-initialized)
 - [Useful documentation](#useful-documentation)
+- [How it was initialized](#how-it-was-initialized)
 
 
 # Project structure
@@ -34,6 +35,12 @@ Really basic example of calling js from templ template.
 
 Entrypoint of the applicaiton. Import all other modules (notes, js-playground)
 
+## public
+
+Public catalog mapped to /
+
+Files from this catalog will be publicly available.
+
 # How to run
 
 ## First run
@@ -44,6 +51,17 @@ go mod tidy
 bash ./run.sh
 # start coding
 ```
+
+# Useful documentation
+
+context: to avoid props drilling:
+https://templ.guide/syntax-and-usage/context
+
+using js in templates:
+https://templ.guide/syntax-and-usage/script-templates
+
+IDE support
+https://templ.guide/commands-and-tools/ide-support
 
 # How it was initialized
 
@@ -67,13 +85,3 @@ npx tailwindcss -i ./views/app.css -o ./dist/output.css --watch
 air
 ```
 
-# Useful documentation
-
-context: to avoid props drilling:
-https://templ.guide/syntax-and-usage/context
-
-using js in templates:
-https://templ.guide/syntax-and-usage/script-templates
-
-IDE support
-https://templ.guide/commands-and-tools/ide-support
