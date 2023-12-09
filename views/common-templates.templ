@@ -1,0 +1,29 @@
+package views
+
+templ Layout(pageName string) {
+	<!DOCTYPE html>
+	<html lang="en" hx-boost="true">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link href="/app.css" rel="stylesheet"/>
+			<script src="https://unpkg.com/htmx.org@1.9.9"></script>
+			<title>{ pageName }</title>
+		</head>
+		<body class="min-h-screen bg-base-200 ">
+			@header()
+			<div class="container mx-auto flex flex-1 flex-col">
+				{ children... }
+			</div>
+		</body>
+	</html>
+}
+
+templ header() {
+	<header class="p-4 px-8 flex">
+		<a class="btn btn-ghost mr-4" href="/">Templ page!</a>
+		<nav class="flex gap-2">
+			<a class="btn btn-ghost" href="/js-playground">JS playground</a>
+		</nav>
+	</header>
+}

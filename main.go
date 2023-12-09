@@ -1,14 +1,10 @@
 package main
 
 import (
-	"context"
-
-	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
-	"github.com/notnulldev/go-templ-playground/notes"
+	jsPlaygroundApi "github.com/notnulldev/go-templ-playground/js-playground/api"
+	notesApi "github.com/notnulldev/go-templ-playground/notes/api"
 )
-
-var notesDb []notes.Note = []notes.Note{{Id: uuid.NewString(), Title: "Test note", Content: "Test\nMultiline\nContent"}}
 
 func main() {
 	println("hello world!")
@@ -16,33 +12,11 @@ func main() {
 
 	e.Static("/", "public")
 
+	notesApi.InitApi(e)
+	jsPlaygroundApi.InitApi(e)
+
 	e.GET("/", func(c echo.Context) error {
-		ctx := context.WithValue(c.Request().Context(), notes.NotesContextKey, notesDb)
-		notes.HomePage().Render(ctx, c.Response().Writer)
-		return nil
-	})
-
-	e.GET("/create-note", func(c echo.Context) error {
-		notes.CreateNotePage().Render(c.Request().Context(), c.Response().Writer)
-		return nil
-	})
-
-	e.GET("/js-playground", func(c echo.Context) error {
-		notes.CreateJSPlaygroundPage().Render(c.Request().Context(), c.Response().Writer)
-		return nil
-	})
-
-	e.POST("/create-note", func(c echo.Context) error {
-		title := c.FormValue("title")
-		content := c.FormValue("content")
-
-		notesDb = append(notesDb, notes.Note{
-			Id:      uuid.NewString(),
-			Title:   title,
-			Content: content,
-		})
-
-		return c.Redirect(302, "/")
+		return c.Redirect(302, "/notes")
 	})
 
 	if err := e.Start(":8080"); err != nil {

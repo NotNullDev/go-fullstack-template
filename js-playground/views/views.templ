@@ -1,0 +1,16 @@
+package views
+
+import "github.com/notnulldev/go-templ-playground/views"
+
+script increment() {
+	const counter = document.querySelector("#js-counter");
+	counter.innerText = Number(counter.innerText) + 1;
+}
+
+templ CreateJSPlaygroundPage() {
+	@views.Layout("JS playground") {
+		<div></div>
+		<button class="btn btn-primary" type="button" onclick={ increment() }>Increment</button>
+		<div>JS counter: <span id="js-counter">0</span></div>
+	}
+}

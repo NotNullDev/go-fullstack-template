@@ -1,3 +1,12 @@
+# How to run
+
+```shell
+npm i
+go mod tidy
+bash ./run.sh
+# start coding
+```
+
 ```shell
 go install github.com/a-h/templ/cmd/templ@latest
 go install github.com/cosmtrek/air@latest

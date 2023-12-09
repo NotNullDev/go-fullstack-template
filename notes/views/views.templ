@@ -1,0 +1,31 @@
+package views
+
+import "fmt"
+import "github.com/notnulldev/go-templ-playground/views"
+
+templ HomePage() {
+	@views.Layout("Home") {
+		<div class="flex flex-col p-8 ">
+			<a class="btn btn-secondary" href="/notes/create">Create note</a>
+			<div class="my-4">{ fmt.Sprintf("Found %d notes!", len(GetNotes(ctx))) } </div>
+			<div class="flex flex-col gap-3">
+				for _, note := range GetNotes(ctx) {
+					<div class="p-4 flex flex-col bg-base-100 rounded-md">
+						<div class="font-bold text-2xl mb-3">{ note.Title }</div>
+						<pre class="whitespace-pre">{ note.Content }</pre>
+					</div>
+				}
+			</div>
+		</div>
+	}
+}
+
+templ CreateNotePage() {
+	@views.Layout("Create note") {
+		<form class="flex flex-col gap-2" method="post" action="/notes/create">
+			<input class="input input-bordered" type="text" placeholder="title" name="title"/>
+			<textarea class="textarea textarea-bordered" type="text" placeholder="content" name="content"></textarea>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+	}
+}
